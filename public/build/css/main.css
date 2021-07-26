@@ -1,0 +1,27 @@
+/* styles*/
+body {
+    font-family: 'Roboto', sans-serif;
+    
+}
+  .bg-p1 {
+    background-color: #73CA9B;
+  }
+  .bg-p2 {
+    background-color: #427C89;
+  } /* espace admin*/
+
+  
+  .color-p1 {
+    color: #73CA9B;
+  }
+  h1.h1 {
+      text-indent:40%;
+      margin-top: -12px!important;
+  }
+  .max-920 {
+    max-width: 920px;
+  }
+  .login{
+    max-width: 420px;
+    margin:25px auto;
+  }
