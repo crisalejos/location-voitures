@@ -7,12 +7,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/conditions")
+ * @Route("/site/conditions")
  */
 class ConditionsController extends AbstractController
 {
     /**
-     * @Route("/conditions", name="conditions", methods={"GET"})
+     * @Route("/site/conditions", name="conditions", methods={"GET"})
      */
     public function conditions(): Response
     {

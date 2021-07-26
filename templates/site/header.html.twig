@@ -22,14 +22,19 @@
               <a title="Page Conditions" class="nav-link text-white" href="{{ path('conditions') }}">Conditions</a>
             </li>
             <li class="nav-item p-2">
+
             {% if app.user %}
-               <button href="{{ path('app_logout') }}" class="btn btn-outline-success text-white btn-primary" type="submit"><i
-                  class="bi bi-person-circle text-white"></i> Logout</button>
-							
-				  	{% else %}
-						   <button href="{{ path('app_login') }}" class="btn btn-outline-success text-white btn-primary" type="submit"><i
-                  class="bi bi-person-circle text-white"></i> Login</button>
-			      {% endif %}
+        <div class="mb-3">
+            <a class="btn btn-outline-success text-white btn-primary" href="{{ path('app_logout') }}">Logout</a>
+        </div>
+        {% else %}
+        <div class="mb-3">
+            <a class="btn btn-outline-success text-white btn-primary" href="{{ path('app_login') }}">Login</a>
+        </div>
+    {% endif %}
+
+
+           
 
             </li>
           </ul>
@@ -38,20 +43,21 @@
     </nav>
 
 <!-- nav de connexion-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-p2">
-	    <div class="nav-wrapper">
-	    	<div class="container">
-	    		
-			      	
+    
+	    	<div class="p-3 bg-p2">
+	    		<div class="container">
+			     <div class="row"> 	
 			        
 			    {% if app.user %}
-						<p class=" text-white text-end">texte user </p>
+						<div class="col-md-6 text-white ">Bienvenu {{ app.user.username }}</div>
+            <div class="col-md-6 text-white text-center">Infos</div>
 					{% else %}
-					  <p class=" text-white text-end">texte admin ? </p>
+					  <div class="col-md-6 text-white text-end">texte admin ? </div>
+            <div class="col-md-6 text-white text-center">Infos</div>
 			    {% endif %}
-		      	
+		      	</div>
 	    	</div>
-	    </div>
-  	</nav>
+        </div>
+	 
     
   </header><!-- end header -->
