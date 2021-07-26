@@ -1,0 +1,57 @@
+<!-- header -->
+  <header class="navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-p1">
+      <div class="container">
+        <a title="Page d'accueil" class="navbar-brand" href="{{ path('index') }}"><img class="logo img-fluid"
+            src="{{ asset('build/images/logo.png') }}" alt="Loca auto">
+          <h1 class="h1 m-0 p-0 fs-6">Location de voitures</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item p-2">
+              <a title="Agence" class="nav-link text-white" href="#">Agence</a>
+            </li>
+            <li class="nav-item p-2">
+              <a title="Voitures" class="nav-link text-white" href="{{ path('cars_index') }}">Voitures</a>
+            </li>
+            <li class="nav-item p-2">
+              <a title="Page Conditions" class="nav-link text-white" href="{{ path('conditions') }}">Conditions</a>
+            </li>
+            <li class="nav-item p-2">
+            {% if app.user %}
+               <button href="{{ path('app_logout') }}" class="btn btn-outline-success text-white btn-primary" type="submit"><i
+                  class="bi bi-person-circle text-white"></i> Logout</button>
+							
+				  	{% else %}
+						   <button href="{{ path('app_login') }}" class="btn btn-outline-success text-white btn-primary" type="submit"><i
+                  class="bi bi-person-circle text-white"></i> Login</button>
+			      {% endif %}
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<!-- nav de connexion-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-p2">
+	    <div class="nav-wrapper">
+	    	<div class="container">
+	    		
+			      	
+			        
+			    {% if app.user %}
+						<p class=" text-white text-end">texte user </p>
+					{% else %}
+					  <p class=" text-white text-end">texte admin ? </p>
+			    {% endif %}
+		      	
+	    	</div>
+	    </div>
+  	</nav>
+    
+  </header><!-- end header -->

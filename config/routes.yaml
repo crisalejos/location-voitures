@@ -1,3 +1,17 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Controller\IndexController::index
+conditions:
+    path: /conditions
+    controller: App\Controller\ConditionsController::conditions
+cars:
+    path: /cars
+    controller: App\Controller\CarsController::cars
+login:
+    path:       /login
+    controller: App\Controller\SecurityController::app_login
+    methods: GET|POST
+logout:
+    path:       /logout
+    controller: App\Controller\SecurityController::app_logout
+    methods: GET|POST

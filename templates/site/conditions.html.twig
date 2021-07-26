@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cars index{% endblock %}
+
+{% block body %}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-3">
+                <img class="logo img-fluid" src="{{ asset('build/images/usp_calendar.png') }}" alt="picto">
+            </div>
+            <div class="col-9">
+                <h3>Locations flexibles</h3>
+                <p>Vous pouvez annuler ou modifier la plupart des réservations gratuitement jusqu’à 48 heures avant la prise en charge du véhicule.</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-3">
+                <img class="logo img-fluid" src="{{ asset('build/images/usp_magnifier.png') }}" alt="picto">
+            </div>
+            <div class="col-9">
+                <h3>Pas de frais cachés</h3>
+                <p>Sachez exactement ce que vous payez.</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-3">
+                <img class="logo img-fluid" src="{{ asset('build/images/usp_wallet.png') }}" alt="picto">
+            </div>
+            <div class="col-9">
+                <h3>Nous alignons nos tarifs</h3>
+                <p>Vous avez trouvé la même offre pour moins cher ? Nous ajusterons notre tarif en conséquence.</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
