@@ -24,4 +24,20 @@ class IndexController extends AbstractController
             'cars' => $carsRepository->findAll(),
         ]);
     }
+
+    /**
+     * @Route("/site/conditions", name="conditions", methods={"GET"})
+     */
+    public function conditions(): Response
+    {
+        return $this->render('site/conditions.html.twig');
+    }
+
+    /**
+     * @Route("/site/agence", name="agence", methods={"GET"})
+     */
+    public function agence(): Response
+    {
+        return $this->render('site/agence.html.twig');
+    }
 }
