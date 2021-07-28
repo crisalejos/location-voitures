@@ -9,6 +9,8 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>title</th>
+                <th>photo</th>
                 <th>Registration_number</th>
                 <th>Km</th>
                 <th>actions</th>
@@ -18,6 +20,8 @@
         {% for car in cars %}
             <tr>
                 <td>{{ car.id }}</td>
+                <td>{{ car.title }}</td>
+                <td><img src="{{asset('build/images/voitures/' ~ car.photo)}}" class="card-img-top " alt="image de la voiture"></td>
                 <td>{{ car.registrationNumber }}</td>
                 <td>{{ car.km }}</td>
                 <td>

@@ -9,16 +9,21 @@
 
 
 <!-- offres-->
-    <div class="offres mt-5 mb-5">
-      <h2 class="text-center color-p1 fs-3 mb-5">NOS OFFRES</h2>
-      <div class="row">
-        <div class="col-md-6 text-center"><img src="{{ asset('build/images/voitures/p-car2.jpg') }}" class="d-block img-fluid m-auto" alt="Location de la voiture">
-        <h3 class="fs-3 color-p1">MBW</h3></div>
-        <div class="col-md-6 text-center"><img src="{{ asset('build/images/voitures/p-car3.jpg') }}" class="d-block img-fluid m-auto" alt="Location de la voiture">
-          <h3 class="fs-3 color-p1">JEEP</h3></div>
-      </div>
+<div class="row">
+{% for car in cars %}
+  <div class="col-md-4 ">
+  <div class="card">
+    <img src="{{asset('build/images/voitures/' ~ car.photo)}}" class="card-img-top " alt="image de la voiture">
+    <div class="card-body">
+      <h5 class="card-title"><span class="fs-5">Numéro d'immatriculation :</span> {{ car.registrationNumber }}</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><span class="fs-5">{{ car.km }} km</span></p>
     </div>
-
+    </div>
+ </div>
+{% endfor %}
+   
+</div><!-- end offres-->
 
 
 
@@ -28,7 +33,7 @@
 
     <div class="text-center mt-5 mb-5">
 
-      <button type="button" class="btn btn-primary m-auto">Voir toutes les voitures</button>
+    {{ include('cta/cta_car_index.html.twig') }}
 
     </div>
 

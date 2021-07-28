@@ -41,23 +41,21 @@
         </div>
       </div>
     </nav>
-
+{% if app.user %}
 <!-- nav de connexion-->
     
 	    	<div class="p-3 bg-p2">
 	    		<div class="container">
 			     <div class="row"> 	
 			        
-			    {% if app.user %}
-						<div class="col-md-6 text-white ">Bienvenu {{ app.user.username }}</div>
+			    
+						<div class="col-md-6 text-white ">Vous  {{ app.user.username }}</div>
             <div class="col-md-6 text-white text-center">Infos</div>
-					{% else %}
-					  <div class="col-md-6 text-white text-end">texte admin ? </div>
-            <div class="col-md-6 text-white text-center">Infos</div>
-			    {% endif %}
+				
+			   
 		      	</div>
 	    	</div>
         </div>
-	 
+ {% endif %}	 
     
   </header><!-- end header -->

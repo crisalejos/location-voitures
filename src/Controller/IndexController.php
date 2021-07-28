@@ -26,7 +26,7 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @Route("/site/conditions", name="conditions", methods={"GET"})
+     * @Route("/conditions", name="conditions", methods={"GET"})
      */
     public function conditions(): Response
     {
@@ -34,10 +34,27 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @Route("/site/agence", name="agence", methods={"GET"})
+     * @Route("/agence", name="agence", methods={"GET"})
      */
     public function agence(): Response
     {
         return $this->render('site/agence.html.twig');
     }
+
+    /**
+     * @Route("/denied_access", name="denied_access")
+     */
+    public function denied_access(): Response
+    {
+        return $this->render('site/denied_access.html.twig');
+    }
+    /**
+     * @Route("/error_500", name="error_500")
+     */
+    public function error_500(): Response
+    {
+        return $this->render('site/error_500.html.twig');
+    }
+
+    
 }

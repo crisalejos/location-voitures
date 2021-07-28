@@ -46,6 +46,16 @@ class Cars
      */
     private $booked_car;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $photo;
+
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    private $title;
+
     public function __construct()
     {
         $this->booked_car = new ArrayCollection();
@@ -107,6 +117,7 @@ class Cars
     {
         return $this->registration_number;
     }
+    
 
     /**
      * @return Collection|Booking[]
@@ -134,6 +145,30 @@ class Cars
                 $bookedCar->setCar(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }

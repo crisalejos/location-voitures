@@ -10,6 +10,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class CarsType extends AbstractType
 {
@@ -46,6 +47,18 @@ class CarsType extends AbstractType
                 'label' => 'Choisir la couleur de la voiture : ',
                 'label_attr'=>['class' => 'form-label'],
                 'attr'=>['class' => 'form-control']               
+            ])
+            ->add('photo', TextType::class, [
+                'label' => 'Image de la voiture : ',
+                'label_attr'=>['class' => 'form-label'],
+                'attr'=>['class' => 'form-control'],
+                'help' => 'Ecrivez le nom du fichier'
+            ])
+            ->add('title', TextType::class, [
+                'label' => 'Titre de la voiture : ',
+                'label_attr'=>['class' => 'form-label'],
+                'attr'=>['class' => 'form-control'],
+                'help' => 'Ecrivez le titre pour cette voiture'
             ])
         ;
     }

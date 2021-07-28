@@ -128,14 +128,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function addRoles(string $roles): self
-    {
-        if (!in_array($roles, $this->roles)) {
-            $this->roles[] = $roles;
-        }
     
-        return $this;
-    }
+    // public function addRoles(string $roles): self
+    // {
+    //     if (!in_array($roles, $this->roles)) {
+    //         $this->roles[] = $roles;
+    //     }
+    
+    //     return $this;
+    // }
+
+     public function roleAdmin()
+     {
+         if ($roles[] = 'ROLE_ADMIN') {
+             return true;
+         }        
+     }
 
     /**
      * @see PasswordAuthenticatedUserInterface
@@ -235,6 +243,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->email;
     }
+    
 
     /**
      * @return Collection|Booking[]
@@ -265,4 +274,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    
 }

@@ -1,3 +1,6 @@
-admin:
-    path: /admin
-    controller: App\Controller\Admin\DashboardController::admin
+error_500:
+    path: /error_500
+    controller: App\Controller\IndexController::error_500
+denied_access:
+    path: /denied_access
+    controller: App\Controller\IndexController::denied_access
