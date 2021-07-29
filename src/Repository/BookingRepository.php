@@ -19,6 +19,20 @@ class BookingRepository extends ServiceEntityRepository
         parent::__construct($registry, Booking::class);
     }
 
+    /**
+    * @return Booking[] Returns an array of Booking objects
+    */
+    public function findByDate($value){
+        return $this->createQueryBuilder('p')
+        ->andWhere('p.start_date like :val')
+        ->orWhere('p.end_date like :val')
+        ->setParameter('val', '%'.$value.'%')
+        ->orderBy('p.start_date,p.end_date', 'ASC')
+        ->getQuery()
+        ->getResult()
+    ;
+    }
+
     // /**
     //  * @return Booking[] Returns an array of Booking objects
     //  */

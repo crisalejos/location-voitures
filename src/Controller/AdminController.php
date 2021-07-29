@@ -53,6 +53,16 @@ class AdminController extends AbstractController
     }
 
     /**
+     * @Route("/reservations", name="booking_search", methods={"GET","POST"})
+     */
+    public function bookingSearch(BookingRepository $bookingRepository, Request $request): Response
+    {
+        return $this->render('booking/index.html.twig', [
+            'bookings' => $bookingRepository->findByDate($request->request->get('search'))
+        ]);
+    } 
+
+    /**
      * @Route("/liste-de-voitures", name="admin_cars_index", methods={"GET"})
      */
     public function adminCarsIndex(CarsRepository $carsRepository): Response
@@ -129,6 +139,16 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('cars_index', [], Response::HTTP_SEE_OTHER);
     }
     
+    /**
+     * @Route("/clients", name="user_search", methods={"GET","POST"})
+     */
+    public function search(UserRepository $userRepository, Request $request): Response
+    {
+        return $this->render('user/index.html.twig', [
+            'users' => $userRepository->findByNameOrFirstName($request->request->get('search'))
+        ]);
+    } 
 
+    
    
 }

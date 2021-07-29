@@ -5,7 +5,9 @@
 {% block body %}
     <h1>Create new Cars</h1>
 
+    {{ include('cars/menu.html.twig') }}
+
     {{ include('cars/_form.html.twig') }}
 
-    <a href="{{ path('cars_index') }}">back to list</a>
+    
 {% endblock %}

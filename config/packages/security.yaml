@@ -40,5 +40,7 @@ security:
     access_control:
             - { path: ^/gestion, roles: ROLE_ADMIN }
             - { path: ^/user, roles: ROLE_ADMIN }
+            - { path: ^/booking, roles: ROLE_ADMIN }
+            - { path: ^/cars, roles: ROLE_ADMIN }
             - { path: ^/service, roles: ROLE_USER } 
             #- { path: ^/site, roles: PUBLIC_ACCESS }       

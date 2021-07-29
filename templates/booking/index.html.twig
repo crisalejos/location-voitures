@@ -3,8 +3,16 @@
 {% block title %}Booking index{% endblock %}
 
 {% block body %}
-    <h1>Booking index</h1>
 
+<h1>Liste de reservations</h1>
+
+    <div class="container p-5">
+    <h2 class="fs-5">Recherche de reservations</h2>
+        <form class="d-flex" method="POST">
+        		<input class="form-control me-2" type="date" name="search" placeholder="Search" aria-label="Search">
+       			 <button class="btn btn-secondary" type="submit">Recherche</button>
+    	</form>
+    </div>
     <table class="table">
         <thead>
             <tr>

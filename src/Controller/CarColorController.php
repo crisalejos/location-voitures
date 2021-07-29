@@ -13,7 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @IsGranted("ROLE_ADMIN")
- * @Route("/cars/color")
+ * @Route("/gestion/color")
  */
 class CarColorController extends AbstractController
 {

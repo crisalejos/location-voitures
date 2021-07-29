@@ -47,6 +47,7 @@ class ServiceController extends AbstractController
      */
     public function service_user_show(User $user): Response
     {
+        
         return $this->render('service/service_user_show.html.twig', [
             'user' => $user,
         ]);
