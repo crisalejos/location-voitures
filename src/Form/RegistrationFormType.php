@@ -25,14 +25,13 @@ class RegistrationFormType extends AbstractType
         ->add('firstname',  TextType::class, [
             'label' => 'Prénom : ',
             'label_attr'=>['class' => 'form-label'],
-            'attr'=>['class' => 'form-control'],
-            'help' => 'Ecrivez votre prénom avec des lettres'
+            'attr'=>['class' => 'form-control']
+            
         ])
         ->add('lastname',  TextType::class, [
             'label' => 'Nom : ',
             'label_attr'=>['class' => 'form-label'],
-            'attr'=>['class' => 'form-control'],
-            'help' => 'Ecrivez votre nom avec des lettres'
+            'attr'=>['class' => 'form-control']
         ])
              ///// add user form
 
@@ -40,8 +39,7 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Email : ',
                 'label_attr'=>['class' => 'form-label'],
                 'attr'=>['class' => 'form-control'],
-                'label_format' => 'form.address.%name%',
-                'help' => 'Ecrivez votre email avec @'              
+                'label_format' => 'form.address.%name%'              
             ])
             //->add('roles')
             
@@ -50,39 +48,39 @@ class RegistrationFormType extends AbstractType
                 'widget' => 'single_text',
                 'label' => 'Date de naissance : ',
                 'label_attr'=>['class' => 'form-label'],
-                'attr'=>['class' => 'mt-3 mb-3 combinedPickerInput'],              
+                'attr'=>['class' => 'form-control']              
             ])
             ->add('phone',  NumberType::class, [
                 'label' => 'Numéro de téléphone : ',
                 'label_attr'=>['class' => 'form-label'],
                 'attr'=>['class' => 'form-control'],
-                'label_format' => '00000000000',
-                'help' => 'Ecrivez le numéro avec 11 chiffres'
+                
+                
             ])
             ->add('card',  TextType::class, [
                 'label' => 'Carte d\'identité : ',
                 'label_attr'=>['class' => 'form-label'],
                 'attr'=>['class' => 'form-control'],
-                //'help' => 'Ecrivez votre carte avec des lettres'
+               
             ])
 
             
             ->add('plainPassword', PasswordType::class, [
 
-                'label' => 'Mot de pass : ',
+                'label' => 'Mot de passe : ',
                 'label_attr'=>['class' => 'form-label'],
                 'attr'=>['class' => 'form-control'],
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                //'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Veuillez entrer un mot de passe'
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Votre mot de passe doit comporter au moins {{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
@@ -91,6 +89,9 @@ class RegistrationFormType extends AbstractType
 
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
+                'attr'=>['class' => 'form-check-input'],
+                'label_attr'=>['class' => 'form-check-label'],
+                
                 'constraints' => [
                     new IsTrue([
                         'message' => 'You should agree to our terms.',

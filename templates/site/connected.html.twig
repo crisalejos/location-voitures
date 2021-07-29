@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cars index{% endblock %}
+{% block title %}Connexion réussi{% endblock %}
 
 {% block body %}
 
 <div class="container listado">
   <div >
-    <p> Connexion correcte</p>
+    <h1> Connexion correcte</h1>
   </div>
       <div class="text-center mt-5 mb-5">
-        <button href="{{ path('cars_index') }}" type="button" class="btn btn-primary m-auto">Voir toutes les voitures</button>
+        <button href="{{ path('service_car_list') }}" type="button" class="btn btn-primary m-auto">Voir toutes les voitures</button>
       </div>
 </div>
 

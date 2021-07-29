@@ -10,6 +10,9 @@ body {
     background-color: #427C89;
   } /* espace admin*/
 
+  .bg-p3 {
+    background-color: #ddd;
+  } /* espace admin*/
   
   .color-p1 {
     color: #73CA9B;
@@ -24,4 +27,8 @@ body {
   .login{
     max-width: 420px;
     margin:25px auto;
+  }
+  
+  .form-label-register-pw {
+	  display:block;
   }

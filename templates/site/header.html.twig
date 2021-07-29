@@ -21,22 +21,64 @@
             <li class="nav-item p-2">
               <a title="Page Conditions" class="nav-link text-white" href="{{ path('conditions') }}">Conditions</a>
             </li>
-            <li class="nav-item p-2">
+
+            
+
+           
+            {% if is_granted('ROLE_USER') %}
+              <li class="nav-item p-2">
+              <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle"  id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                  Mon espace
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+                  <li><a title="Mon profile" class="dropdown-item text-black" href="/service/{{ app.user.id }}">Mon profil</a></button></li>
+                  <li><a title="Liste des voitures" class="dropdown-item text-black" href="{{ path('service_car_list') }}">Liste des voitures</a></button></li>
+                  
+                  <li><a title="Liste de reservations" class="dropdown-item text-black" href="{{ path('booking_index') }}">Mes reservations</a></button></li>
+                
+                </ul>
+              </div>
+              </li>
+            {% endif %}
+            
+
+            
+            {% if is_granted('ROLE_ADMIN') %}
+              <li class="nav-item p-2">
+              <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle"  id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                  Gestion Admin
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <li><a title="Liste des voitures" class="dropdown-item text-black" href="{{ path('cars_index') }}">Liste des voitures</a></button></li>
+                  <li><a title="Liste de clients" class="dropdown-item text-black" href="{{ path('user_index') }}">Liste de clients</a></button></li>
+                  <li><a title="Liste de reservations" class="dropdown-item text-black" href="{{ path('booking_index') }}">Liste de reservations</a></button></li>
+                
+                </ul>
+              </div>
+              </li>
+            {% endif %}
+            
+            
 
             {% if app.user %}
-        <div class="mb-3">
-            <a class="btn btn-outline-success text-white btn-primary" href="{{ path('app_logout') }}">Logout</a>
-        </div>
-        {% else %}
-        <div class="mb-3">
-            <a class="btn btn-outline-success text-white btn-primary" href="{{ path('app_login') }}">Login</a>
-        </div>
-    {% endif %}
+            <li class="nav-item p-2">
+              <div class="mb-3">
+                  <a class="btn btn-outline-success text-white btn-primary" href="{{ path('app_logout') }}">Logout</a>
+              </div>
+              {% else %}
+              <div class="mb-3">
+                  <a class="btn btn-outline-success text-white btn-primary" href="{{ path('app_login') }}">Login</a>
+              </div>
+            </li>
+            {% endif %}
 
 
            
 
-            </li>
+            
           </ul>
         </div>
       </div>
@@ -49,7 +91,7 @@
 			     <div class="row"> 	
 			        
 			    
-						<div class="col-md-6 text-white ">Vous  {{ app.user.username }}</div>
+						<div class="col-md-6 text-white ">E-mail de connexion : {{ app.user.username }}</div>
             <div class="col-md-6 text-white text-center">Infos</div>
 				
 			   

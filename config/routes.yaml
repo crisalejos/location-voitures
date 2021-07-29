@@ -4,3 +4,12 @@ error_500:
 denied_access:
     path: /denied_access
     controller: App\Controller\IndexController::denied_access
+service_home:
+    path: /service
+    controller: App\Controller\ServiceController::service_home
+service_car_list:
+    path: /service/voitures-en-location
+    controller: App\Controller\ServiceController::serviceCarList
+service_user_show:
+    path: /service/{id}
+    controller: App\Controller\ServiceController::service_user_show

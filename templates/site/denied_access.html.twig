@@ -6,10 +6,14 @@
 
 <div class="container listado">
   <div >
-    <h1> denied_access</h1>
+    <h1 class="text-center">Accès interdit</h1>
   </div>
       <div class="text-center mt-5 mb-5">
-        <button href="{{ path('cars_index') }}" type="button" class="btn btn-primary m-auto">Voir toutes les voitures</button>
+
+      <p>Vous n'avez pas la permission d'entrer sur cette page.
+      </p>
+
+<a class="btn text-white btn-primary" href="{{ path('service_car_list') }}">Voir toutes les voitures</a>
       </div>
 </div>
 

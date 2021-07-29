@@ -52,7 +52,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         
        
         // For example:
-        return new RedirectResponse($this->urlGenerator->generate('user_index'));
+        return new RedirectResponse($this->urlGenerator->generate('service_home'));
        //return new RedirectResponse($this->urlGenerator->generate('denied_access'));
         throw new \Exception('TODO: provide a valid redirect inside '.$targetPath);
     }

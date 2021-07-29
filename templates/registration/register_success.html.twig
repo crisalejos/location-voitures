@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+<div class="row mt-5">
+<div class="col-md-4 offset-1 d-none d-md-block">
+    <img src="{{ asset('build/images/register.jpg') }}" class="d-block w-100" alt="Location de la voiture">
+</div>
+<div class="col-md-6 ">
+
+
+<h1 class="h3 mb-3  font-weight-normal ">Inscription correcte</h1>
+<p>
+Votre inscription s'est bien déroulée.
+</p>
+
+<p>
+Pour commencer à utiliser les services <strong>Loca Auto</strong>, vous devez accéder au formulaire de connexion et renseigner votre <strong>email</strong> et votre <strong>mot de passe</strong>.
+
+</p>
+
+<p>
+<a class="btn btn-outline-success text-white btn-primary" href="{{ path('app_login') }}">Acceder à la page de connexion</a>
+</p>
+
+</div>
+</div>
+
+    
+{% endblock %}

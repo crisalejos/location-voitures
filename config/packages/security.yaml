@@ -38,6 +38,7 @@ security:
             lazy: true          
     # vérifie que l'utilisateur a le(s) rôle(s) requis pour accéder au contenu
     access_control:
-            - { path: ^/admin, roles: ROLE_ADMIN }
-            - { path: ^/user, roles: ROLE_USER } 
+            - { path: ^/gestion, roles: ROLE_ADMIN }
+            - { path: ^/user, roles: ROLE_ADMIN }
+            - { path: ^/service, roles: ROLE_USER } 
             #- { path: ^/site, roles: PUBLIC_ACCESS }       

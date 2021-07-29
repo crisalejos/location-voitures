@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class UserType extends AbstractType
 {
@@ -25,25 +26,21 @@ class UserType extends AbstractType
             'label_attr'=>['class' => 'form-label'],
             'attr'=>['class' => 'form-control'],
             'label_format' => 'form.address.%name%',
-            'help' => 'Ecrivez votre email avec @'              
+                          
         ])
         //->add('roles')
-        ->add('password', RepeatedType::class, array(
-            'type' => PasswordType::class,
-            'first_options'  => array('label' => 'Password'),
-            'second_options' => array('label' => 'Repeat Password'),
-        ))
+        //->add('password')
         ->add('firstname',  TextType::class, [
             'label' => 'Prénom : ',
             'label_attr'=>['class' => 'form-label'],
             'attr'=>['class' => 'form-control'],
-            'help' => 'Ecrivez votre prénom avec des lettres'
+            
         ])
         ->add('lastname',  TextType::class, [
             'label' => 'Nom : ',
             'label_attr'=>['class' => 'form-label'],
             'attr'=>['class' => 'form-control'],
-            'help' => 'Ecrivez votre nom avec des lettres'
+            
         ])
         ->add('birthdate',  BirthdayType::class, [
             'widget' => 'single_text',
@@ -56,7 +53,7 @@ class UserType extends AbstractType
             'label_attr'=>['class' => 'form-label'],
             'attr'=>['class' => 'form-control'],
             'label_format' => '00000000000',
-            'help' => 'Ecrivez le numéro avec 11 chiffres'
+            
         ])
         ->add('card',  TextType::class, [
             'label' => 'Carte d\'identité : ',
@@ -66,34 +63,27 @@ class UserType extends AbstractType
         ])
         ->add('plainPassword', PasswordType::class, [
 
-            'label' => 'Mot de pass : ',
+            'label' => 'Mot de passe : ',
             'label_attr'=>['class' => 'form-label'],
             'attr'=>['class' => 'form-control'],
             // instead of being set onto the object directly,
             // this is read and encoded in the controller
             'mapped' => false,
-            'attr' => ['autocomplete' => 'new-password'],
+            //'attr' => ['autocomplete' => 'new-password'],
             'constraints' => [
                 new NotBlank([
-                    'message' => 'Please enter a password',
+                    'message' => 'Veuillez entrer un mot de passe'
                 ]),
                 new Length([
                     'min' => 6,
-                    'minMessage' => 'Your password should be at least {{ limit }} characters',
+                    'minMessage' => 'Votre mot de passe doit comporter au moins {{ limit }} caractères',
                     // max length allowed by Symfony for security reasons
                     'max' => 4096,
                 ]),
             ],
         ])
 
-        ->add('agreeTerms', CheckboxType::class, [
-            'mapped' => false,
-            'constraints' => [
-                new IsTrue([
-                    'message' => 'You should agree to our terms.',
-                ]),
-            ],
-        ])
+        //->add('agreeTerms')
     ;
 }
 
