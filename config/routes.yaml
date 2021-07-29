@@ -13,3 +13,6 @@ service_car_list:
 service_user_show:
     path: /service/{id}
     controller: App\Controller\ServiceController::service_user_show
+admin_home:
+    path: /gestion
+    controller: App\Controller\AdminController::admin_home

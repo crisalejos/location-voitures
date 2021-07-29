@@ -5,16 +5,21 @@ namespace App\Controller;
 use App\Entity\Cars;
 use App\Form\CarsType;
 use App\Repository\CarsRepository;
+use App\Repository\BookingRepository;
+use App\Entity\Booking;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\User;
 use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 //  * @IsGranted("ROLE_USER") use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
+ * @IsGranted("ROLE_USER")
  * @Route("/service")
  */
 class ServiceController extends AbstractController
@@ -28,7 +33,7 @@ class ServiceController extends AbstractController
     }
 
     /**
-     * @Route("/service/voitures-en-location", name="service_car_list", methods={"GET"})
+     * @Route("/voitures-en-location", name="service_car_list", methods={"GET"})
      */
     public function serviceCarList(CarsRepository $carsRepository): Response
     {
@@ -64,6 +69,16 @@ class ServiceController extends AbstractController
         return $this->renderForm('service/service_user_edit.html.twig', [
             'user' => $user,
             'form' => $form,
+        ]);
+    }
+
+    /**
+     * @Route("/mes-reservations", name="service_booking_index", methods={"GET"})
+     */
+    public function index(BookingRepository $bookingRepository): Response
+    {
+        return $this->render('service/service_booking_index.html.twig', [
+            'bookings' => $bookingRepository->find($bookingRepository),
         ]);
     }
 

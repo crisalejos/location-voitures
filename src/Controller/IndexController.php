@@ -59,5 +59,14 @@ class IndexController extends AbstractController
         return $this->render('site/error_500.html.twig');
     }
 
+    /**
+     * @Route("/liste_voitures", name="index_cars_home", methods={"GET"})
+     */
+    public function indexCarHome(CarsRepository $carsRepository): Response
+    {
+        return $this->render('site/index_cars_home.html.twig', [
+            'cars' => $carsRepository->findAll(),
+        ]);
+    }
     
 }
